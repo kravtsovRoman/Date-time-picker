@@ -70,23 +70,25 @@ export default class Datetime extends React.Component {
                 <div className='dt-input'>
                     <input type="text" value={ m.format(this.props.format)  } onFocus={this.handleFocus} />
                 </div>
-                <div className='options'>
-                    <button className={ btnDate } onClick={ this.handleTabClick.bind(this, 0) }>Date</button>
-                    <button className={ btnTime } onClick={ this.handleTabClick.bind(this, 1) }>Time</button>
+                <div className={wrapperClasses}>
+                    <div className='options'>
+                        <button className={ btnDate } onClick={ this.handleTabClick.bind(this, 0) }>Дата</button>
+                        <button className={ btnTime } onClick={ this.handleTabClick.bind(this, 1) }>Время</button>
+                    </div>
+                    <div className='tabs'>
+                        <Calendar
+                            className={ calendarClasses }
+                            onChange={ this.handleChange }
+                            moment={ m }
+                        />
+                        <Time
+                            className={ timeClasses }
+                            onChange={ this.handleChange }
+                            moment={ m }
+                        />
+                    </div>
+                    <button className='dt-btn-save' onClick={this.handleSave}>Save</button>
                 </div>
-                <div className='tabs'>
-                    <Calendar
-                        className={ calendarClasses }
-                        onChange={ this.handleChange }
-                        moment={ m }
-                    />
-                    <Time
-                        className={ timeClasses }
-                        onChange={ this.handleChange }
-                        moment={ m }
-                    />
-                </div>
-                <button className='dt-btn-save' onClick={this.handleSave}>Save</button>
             </div>
         );
     }

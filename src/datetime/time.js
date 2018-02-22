@@ -19,6 +19,20 @@ export default class Calendar extends React.Component {
         }
     }
 
+    changeHours(pos) {
+        const m = this.props.moment;
+        m.hours(parseInt(pos.x));
+        this.setState({ m });
+        this.props.onChange(m);
+    }
+
+    changeMinutes(pos) {
+        const m = this.props.moment;
+        m.minutes(parseInt(pos.x));
+        this.setState({ m });
+        this.props.onChange(m);
+    }
+
 
     render() {
 
@@ -34,14 +48,14 @@ export default class Calendar extends React.Component {
                 </div>
                 <div className="sliders">
                     <div className="time-text">Часы</div>
-                    <InputSlider
+                    <InputSlider className='u-slider-time'
                         xmin={0}
                         xmax={23}
                         x={ m.hour() }
                         onChange={ this.changeHours.bind(this) }
                     />
                     <div className="time-text">Минуты</div>
-                    <InputSlider
+                    <InputSlider className='u-slider-time'
                         xmin={0}
                         xmax={59}
                         x={ m.minutes() }

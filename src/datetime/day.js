@@ -14,13 +14,13 @@ export default class Day extends React.Component {
     }
 
     render() {
-        const { i, d, w } = this.state;
-        const prevMonth = (w === 0 && i> 7);
+        const { i, d, w } = this.props;
+        const prevMonth = (w === 0 && i > 7);
         const nextMonth = (w >= 4 && i > 14);
 
         const wrapperClasses = classnames({
-            'prevMonth': prevMonth,
-            'nextMonth': nextMonth,
+            'prev-month': prevMonth,
+            'next-month': nextMonth,
             'current-day': !prevMonth && !nextMonth && (i === d),
             'disabled': (prevMonth || nextMonth)
         });

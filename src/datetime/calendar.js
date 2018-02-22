@@ -9,7 +9,6 @@ export default class Calendar extends React.Component {
         moment: PropTypes.any.isRequired,
         className: PropTypes.string.isRequired,
         onChange: PropTypes.func.isRequired
-
     };
 
     constructor(props) {
@@ -64,7 +63,7 @@ export default class Calendar extends React.Component {
     }
 
     selectDate(i, w) {
-        const prevMonth = (w === 0 && i> 7);
+        const prevMonth = (w === 0 && i > 7);
         const nextMonth = (w >= 4 && i > 14);
 
         const { m } = this.state;
